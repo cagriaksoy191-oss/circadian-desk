@@ -1,0 +1,8 @@
+# Core --simulate mode, WiZ UDP, Philips Hue CLIP v2, and Windows DDC/CI + GPU LUT
+# run on Python 3.10+ standard library with ZERO third-party packages required.
+
+# Required only when streaming from physical Raspberry Pi Pico over USB-Serial (--port COMx):
+pyserial>=3.5
+
+# Required only for running the automated test suite:
+pytest>=7.4

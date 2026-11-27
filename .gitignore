@@ -1,0 +1,36 @@
+# Python virtual environments & caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+prototype/build/
+prototype/dist/
+*.spec
+*.log
+
+# Local telemetry logs, generated reports & user-specific configs
+*.csv
+reports/
+room_profile.json
+config.json
+
+# OS & editor artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+.env
+
+# Internal founder strategy, marketing playbooks, prompts & Turkish working notes
+# (kept strictly local — never published to the public open-source repository)
+landing/LAUNCH_PLAYBOOK.md
+Nihai_Urun_Plani_ve_Karsilastirmali_Muhendislik_Analizi.md
+Sirkadiyen_Aydinlatma_Fizibilite_ve_Yol_Haritasi.md
+Derin_Arastirma_Promptlari_TR.md
+Siradaki_Asamalar_V1_1_TR.md
+prototype/GUN3_TEDARIK_LISTESI_TR.md
+prototype/WIRING_AND_BOM_TR.md

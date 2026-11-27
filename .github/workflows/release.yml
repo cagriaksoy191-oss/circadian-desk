@@ -1,0 +1,162 @@
+name: Release Windows Portable ZIP & MSIX
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      msix_identity:
+        description: "Partner Center Package Identity Name (optional)"
+        required: false
+        default: ""
+      msix_publisher:
+        description: "Partner Center Publisher CN=... (optional)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+jobs:
+  build-windows-release:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up official PSF x64 CPython 3.11 (Smart App Control safe)
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          architecture: "x64"
+
+      - name: Verify PSF Authenticode signature on CPython runtime DLL
+        shell: pwsh
+        run: |
+          $pyDir = Split-Path -Parent (Get-Command python).Source
+          $dlls = Get-ChildItem -Path $pyDir -Filter "python3*.dll"
+          if (-not $dlls) { throw "No python3*.dll found in $pyDir" }
+          foreach ($dll in $dlls) {
+            $sig = Get-AuthenticodeSignature -FilePath $dll.FullName
+            Write-Host "$($dll.Name): Status=$($sig.Status) Signer=$($sig.SignerCertificate.Subject)"
+            if ($sig.Status -ne "Valid") {
+              throw "Refusing to package unsigned CPython runtime $($dll.FullName) (Smart App Control policy)."
+            }
+          }
+
+      - name: Install build & test tools (zero runtime pip dependencies)
+        shell: pwsh
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest pyinstaller
+
+      - name: Run deterministic pytest suite
+        shell: pwsh
+        env:
+          PYTHONPATH: prototype
+        run: |
+          pytest -v prototype/tests/test_pipeline.py
+
+      - name: Build --onedir --noupx Portable ZIP & stage MSIX directory
+        shell: pwsh
+        run: |
+          $extra = @()
+          if ("${{ inputs.msix_identity }}" -ne "") { $extra += @("--msix-identity", "${{ inputs.msix_identity }}") }
+          if ("${{ inputs.msix_publisher }}" -ne "") { $extra += @("--msix-publisher", "${{ inputs.msix_publisher }}") }
+          python prototype/build_windows.py --mode onedir --msix-stage @extra
+
+      - name: Smoke-test compiled CircadianDesk.exe (--version & --simulate)
+        shell: pwsh
+        run: |
+          $exe = "prototype\dist\CircadianDesk\CircadianDesk.exe"
+          $ver = & $exe --version
+          Write-Host "Version output: $ver"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $tmpCsv = Join-Path $env:TEMP "ci_smoke.csv"
+          & $exe --simulate day_to_evening_demo --light none --ticks 4 --interval 0 --log-csv $tmpCsv
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          Remove-Item -Force -ErrorAction SilentlyContinue $tmpCsv
+
+      - name: Compile resources.pri (makepri.exe) & pack MSIX (makeappx.exe)
+        shell: pwsh
+        run: |
+          $sdkRoot = "C:\Program Files (x86)\Windows Kits\10\bin"
+          $sdkVer = Get-ChildItem $sdkRoot -Directory | Where-Object { $_.Name -match "^10\." } | Sort-Object Name -Descending | Select-Object -First 1
+          if (-not $sdkVer) { throw "Windows 10/11 SDK not found under $sdkRoot" }
+          $kitBin = Join-Path $sdkVer.FullName "x64"
+          $makePri = Join-Path $kitBin "makepri.exe"
+          $makeAppx = Join-Path $kitBin "makeappx.exe"
+
+          $priCfg = "prototype\dist\priconfig.xml"
+          & $makePri createconfig /cf $priCfg /dq en-US /o
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          # Disable AutoMerge explicitly so resources.pri stays clean for Store ingestion
+          (Get-Content $priCfg) -replace 'autoMerge="true"', 'autoMerge="false"' | Set-Content $priCfg -Encoding UTF8
+
+          & $makePri new /pr "prototype\dist\msix_stage" /cf $priCfg /mn "prototype\dist\msix_stage\AppxManifest.xml" /of "prototype\dist\msix_stage\resources.pri" /o
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+          # Never pass /nv — enforce full manifest & PNG asset schema validation
+          $msixOut = "prototype\dist\CircadianDesk_1.0.0.0_x64.msix"
+          & $makeAppx pack /d "prototype\dist\msix_stage" /p $msixOut /o
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+          # Recompute SHA256SUMS.txt covering both Portable ZIP and MSIX package
+          $files = @(
+            "prototype\dist\CircadianDesk-v1.0.0-win64-portable.zip",
+            $msixOut
+          )
+          $lines = foreach ($f in $files) {
+            $hash = (Get-FileHash -Algorithm SHA256 -Path $f).Hash.ToLowerInvariant()
+            "$hash  $(Split-Path -Leaf $f)"
+          }
+          $lines | Set-Content -Path "prototype\dist\SHA256SUMS.txt" -Encoding ASCII
+
+      - name: Attest build provenance (SLSA / GitHub Artifact Attestations)
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: |
+            prototype/dist/CircadianDesk-v1.0.0-win64-portable.zip
+            prototype/dist/CircadianDesk_1.0.0.0_x64.msix
+
+      - name: Upload workflow release artifacts
+        id: upload_release
+        uses: actions/upload-artifact@v4
+        with:
+          name: circadiandesk-windows-release
+          path: |
+            prototype/dist/CircadianDesk-v1.0.0-win64-portable.zip
+            prototype/dist/CircadianDesk_1.0.0.0_x64.msix
+            prototype/dist/SHA256SUMS.txt
+
+      - name: Upload unsigned portable ZIP for optional SignPath signing
+        id: upload_signpath_zip
+        if: ${{ secrets.SIGNPATH_API_TOKEN != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: circadiandesk-portable-zip
+          path: prototype/dist/CircadianDesk-v1.0.0-win64-portable.zip
+
+      - name: Optional OSS Authenticode signing via SignPath Foundation ($0)
+        if: ${{ secrets.SIGNPATH_API_TOKEN != '' }}
+        uses: signpath/github-action-submit-signing-request@v3
+        with:
+          api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+          organization-id: ${{ secrets.SIGNPATH_ORGANIZATION_ID }}
+          project-slug: circadiandesk
+          signing-policy-slug: release-signing
+          github-artifact-id: ${{ steps.upload_signpath_zip.outputs.artifact-id }}
+          wait-for-completion: true
+          output-artifact-directory: prototype/dist/signed
+
+      - name: Publish GitHub Release on tag push
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            prototype/dist/CircadianDesk-v1.0.0-win64-portable.zip
+            prototype/dist/CircadianDesk_1.0.0.0_x64.msix
+            prototype/dist/SHA256SUMS.txt

@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eye-Level Spectral Light Orchestrator (V1A) — Software-First · Wired USB-C · 100% Local</title>
+  <meta name="description" content="Start free with Circadian Desk (Microsoft Store $0 MSIX & GitHub winget) — local Windows System Tray orchestrator with HDR Auto-Pause, OLED-safe nit curve, zero-admin 2300K (Magnification.dll, no reboot), Photoshop/Games Auto-Pause, and local smart-light sync. Optional wired USB-C V1A sensor adds room ambient spectral sensing (±15%).">
+  <meta property="og:title" content="Eye-Level Spectral Light Orchestrator (V1A)">
+  <meta property="og:description" content="Free local Windows desktop app ($0 on Microsoft Store MSIX & GitHub/winget · HDR Auto-Pause · zero-admin 2300K no reboot) + optional wired USB-C V1A spectral sensor ($109–$119 Early Bird + shipping on Crowd Supply / $129–$139 MSRP). 100% local execution, zero mandatory subscription.">
+  <meta property="og:image" content="assets/ref_desk_scene.jpg">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Spectral Light Orchestrator V1A Home">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-code">SPECTRAL · V1A</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="#simulator">Simulator</a>
+        <a href="#demo">Bench Demo</a>
+        <a href="#physics">Optical Proof</a>
+        <a href="#hardware">Hardware</a>
+        <a href="#reserve">Pre-Launch</a>
+        <a href="https://github.com/cagriaksoy191-oss/circadian-desk" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
+
+      <a href="#reserve" class="btn btn-primary btn-sm">Join Pre-Launch</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- SECTION 1: HERO -->
+    <section id="top" class="hero">
+      <div class="container">
+        <div class="hero-top">
+          <div class="hero-copy">
+            <p class="eyebrow">FREE WINDOWS APP ($0 MICROSOFT STORE MSIX &amp; GITHUB / WINGET) · OPTIONAL WIRED USB-C V1A</p>
+            <h1>Eye-Level Spectral Light Orchestrator</h1>
+            <p class="hero-subhead">
+              Start free with <code>Circadian Desk</code> (Microsoft Store <code>$0</code> Microsoft-signed MSIX or GitHub Actions / <code>winget</code>)—native Windows System Tray, automatic <strong>HDR Auto-Pause</strong>, OLED-safe nit-normalized curve, zero-admin deep <code>2300K</code> (<code>Magnification.dll</code>, no reboot) + native laptop <code>WMI</code> / external <code>DDC/CI</code> backlight, and foreground Auto-Pause for Photoshop, Lightroom, Figma, DaVinci Resolve &amp; fullscreen games. Optionally add our wired USB-C V1A sensor for room ambient spectral sensing (&plusmn;15%) and glare harmony.
+            </p>
+            <div class="hero-actions">
+              <a href="https://github.com/cagriaksoy191-oss/circadian-desk/releases/latest" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Download Free App (GitHub)</a>
+              <a href="#simulator" class="btn btn-secondary">Test Live m-EDI Simulator</a>
+              <a href="#reserve" class="btn btn-outline">V1A Crowd Supply Alert</a>
+            </div>
+            <p class="compat-line">
+              <span class="compat-label">Local Architecture:</span>
+              Runs on <code>127.0.0.1</code> loopback with optional LAN control for Philips Hue, WiZ, LIFX, Home Assistant, and local Matter bridges. No cloud account, outbound telemetry, camera, or pixel capture. MIT open-source core.
+            </p>
+          </div>
+
+          <aside class="hero-ledger" aria-label="Core Specification Summary">
+            <div class="ledger-row">
+              <span class="ledger-key">OPTICAL CORE</span>
+              <span class="ledger-val">OLGA-8 Multi-Spectral (TCS3448-DOLM / PoC AS734x)</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-key">MCU &amp; RADIO</span>
+              <span class="ledger-val">RP2350A Secure Boot (EU CRA) · Wired 5V USB-C</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-key">DISTRIBUTION</span>
+              <span class="ledger-val">MS Store ($0 MSIX) · GitHub Actions / winget · Local LAN</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-key">PRICING</span>
+              <span class="ledger-val ledger-accent">App $0 · V1A $109–$119 EB (+ ship) / $129–$139 MSRP</span>
+            </div>
+          </aside>
+        </div>
+
+        <figure class="hero-media">
+          <img
+            src="assets/ref_desk_scene.jpg"
+            alt="Split day and evening desk workspace showing the eye-level spectral sensor mounted on top of a monitor, coordinating overhead linen pendant light, floor lamp, and display from DAY 265 m-EDI 5200K to EVENING 8 m-EDI 2300K"
+            width="1408"
+            height="768"
+            fetchpriority="high"
+          >
+          <figcaption class="media-caption">
+            <span>FIG. 01 — SINGLE DESK ORCHESTRATION</span>
+            <span>DAY 265 m-EDI · 5200K → EVENING 8 m-EDI · 2300K</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 1B: INTERACTIVE LIVE m-EDI SIMULATOR -->
+    <section id="simulator" class="section section-instrument">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">INTERACTIVE OPTICAL BENCH · k = 2 (&plusmn;17%) 3-STATE METROLOGY</p>
+            <h2>Feel the Day-to-Evening m-EDI Curve &amp; Non-Negativity Rule</h2>
+          </div>
+          <p class="section-intro">
+            Drag the time control below, toggle an <strong>unlinked cool light</strong> or the <strong>High-Sensitivity Evening Preset (&le; 5 m-EDI)</strong>, and watch honest <strong>k = 2 (&plusmn;17%)</strong> 3-state reporting (<code>MET</code> / <code>UNCERTAIN</code> / <code>UNMET</code>)—plus 3-second hand-shadow rejection.
+          </p>
+        </div>
+
+        <div class="instrument-panel" role="region" aria-label="Interactive Day-to-Evening m-EDI Light Orchestrator Simulator">
+          <div class="instrument-header">
+            <div class="instrument-id">
+              <span class="status-led" id="sim-status-led" aria-hidden="true"></span>
+              <span class="mono-label" id="sim-phase-label">DAYTIME CLARITY · FEEDFORWARD PROFILE ACTIVE</span>
+            </div>
+            <div class="instrument-clock">
+              <span class="mono-dim">LOCAL TIME</span>
+              <output id="sim-time-output" for="sim-time-slider" class="mono-readout">13:00</output>
+            </div>
+          </div>
+
+          <div class="instrument-body">
+            <!-- Left column: Controls -->
+            <div class="instrument-controls">
+              <div class="control-block">
+                <div class="control-label-row">
+                  <label for="sim-time-slider" class="control-label">Time of Day Progression</label>
+                  <span class="mono-dim" id="sim-target-pill">Target: &ge; 250 m-EDI</span>
+                </div>
+
+                <input
+                  id="sim-time-slider"
+                  class="rams-slider"
+                  type="range"
+                  min="7"
+                  max="23"
+                  step="0.25"
+                  value="13"
+                  aria-label="Simulated time of day from 07:00 to 23:00"
+                >
+
+                <div class="preset-row" role="group" aria-label="Time of day presets">
+                  <button type="button" class="preset-btn" data-hour="8.5">08:30 Morning</button>
+                  <button type="button" class="preset-btn is-active" data-hour="13">13:00 Midday</button>
+                  <button type="button" class="preset-btn" data-hour="19.5">19:30 Dusk</button>
+                  <button type="button" class="preset-btn" data-hour="21.5">21:30 Evening</button>
+                </div>
+              </div>
+
+              <div class="control-block perturbation-block">
+                <span class="control-label">Room Perturbation &amp; Preset Tests</span>
+
+                <label class="toggle-card" for="sim-unlinked-toggle">
+                  <span class="toggle-text">
+                    <strong>Unlinked Cool Light (Shelf Neon / 6500K Strip)</strong>
+                    <span>Simulates an unlinked blue-rich lamp switched on in the room.</span>
+                  </span>
+                  <span class="switch-wrap">
+                    <input id="sim-unlinked-toggle" type="checkbox">
+                    <span class="switch-track" aria-hidden="true"></span>
+                  </span>
+                </label>
+
+                <label class="toggle-card" for="sim-highsens-toggle">
+                  <span class="toggle-text">
+                    <strong>High-Sensitivity Evening Preset (&le; 5 m-EDI)</strong>
+                    <span>Optional stricter evening visual-comfort cap vs. default &le; 10 m-EDI.</span>
+                  </span>
+                  <span class="switch-wrap">
+                    <input id="sim-highsens-toggle" type="checkbox">
+                    <span class="switch-track" aria-hidden="true"></span>
+                  </span>
+                </label>
+
+                <div class="shadow-row">
+                  <button type="button" id="sim-shadow-btn" class="btn btn-outline btn-sm">
+                    Simulate 3s Hand Shadow
+                  </button>
+                  <span class="mono-dim" id="sim-shadow-status">Median filter idle · 0% flicker</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right column: Telemetry & Spectrum -->
+            <div class="instrument-telemetry">
+              <div id="sim-alert-banner" class="alert-banner" role="status" aria-live="polite" hidden>
+                <span class="alert-pill">Unlinked Light — Switch Off</span>
+                <span class="alert-copy" id="sim-alert-copy">
+                  Evening threshold (10 m-EDI) breached by an unlinked cool source. Linked lamps dropped to 0% instead of adding warm wash.
+                </span>
+              </div>
+
+              <div class="metric-grid">
+                <div class="metric-cell" id="cell-medi">
+                  <span class="metric-label">AMBIENT m-EDI (k = 2)</span>
+                  <span class="metric-value" id="out-medi">265</span>
+                  <span class="metric-unit" id="out-medi-unc">&plusmn; 45 lx (CIE S 026)</span>
+                  <span class="compliance-pill state-uncertain" id="out-compliance">UNCERTAIN · NEAR 250 lx</span>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-label">EFFECTIVE CCT</span>
+                  <span class="metric-value" id="out-cct">5200K</span>
+                  <span class="metric-unit" id="out-lux">318 photopic lx</span>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-label">LINKED ROOM LAMPS</span>
+                  <span class="metric-value" id="out-lamp">78%</span>
+                  <span class="metric-unit" id="out-lamp-cct">5400K (shade-compensated)</span>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-label">ACTIVE DISPLAY GUARD</span>
+                  <span class="metric-value" id="out-display">85%</span>
+                  <span class="metric-unit" id="out-display-cct">DDC/CI · 5200K GPU LUT</span>
+                </div>
+              </div>
+
+              <div class="spectrum-box" aria-label="Simulated 12-band multi-spectral distribution">
+                <div class="spectrum-head">
+                  <span class="mono-label">MULTI-SPECTRAL 12-BAND MONITOR (405–855 nm · 100 ms MAINS-NULL)</span>
+                  <span class="mono-dim">Highlighted: ~480–490 nm band · &lt;0.3 lx night noise floor</span>
+                </div>
+                <div class="spectrum-bars" id="spectrum-bars" role="img" aria-label="Spectral intensity across twelve optical channels"></div>
+              </div>
+
+              <p class="telemetry-note" id="sim-explanation">
+                Midday balance: lampshade warmth is compensated via your saved 2-minute room transfer matrix while monitor backlight and ambient fixtures hold steady at 265 &plusmn; 45 lx m-EDI.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: RESERVED 45-SEC REAL PROTOTYPE VIDEO SLOT -->
+    <section id="demo" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">ZERO VAPORWARE POLICY · PROOF BEFORE PUBLIC LAUNCH</p>
+            <h2>45-Second Uncut Desk Demo &amp; 7-Day Real m-EDI Log</h2>
+          </div>
+          <p class="section-intro">
+            Industrial renders communicate form factor—not optical truth. Before any Crowd Supply pre-launch opens, this slot holds a raw, single-take phone video of the physical <code>OLGA-8</code> bench unit (<code>AS7341 / AS7343 / TCS3448</code>) alongside our <strong>&ldquo;My Own Room: 7-Day Real m-EDI Log&rdquo;</strong>.
+          </p>
+        </div>
+
+        <div class="video-stage" id="demo-video-stage">
+          <!-- Populated cleanly by app.js: renders native <video> if CONFIG.demoVideoSrc is set, otherwise renders the reserved slot poster without 404 errors -->
+          <div class="video-placeholder" id="demo-video-placeholder">
+            <img
+              src="assets/ref_hardware.jpg"
+              alt="Hardware studio preview of the V1A spectral sensor waiting for raw 45-second bench prototype footage"
+              class="video-poster-bg"
+              loading="lazy"
+            >
+            <div class="video-overlay">
+              <div class="video-badge-row">
+                <span class="mono-badge badge-amber">RESERVED VIDEO SLOT · assets/demo_45s.mp4</span>
+                <span class="mono-badge">DAY-12 BENCH CAPTURE PENDING</span>
+              </div>
+              <h3>Raw Bench Footage Drops Here Before Crowd Supply Launch</h3>
+              <p>
+                Drop <code>demo_45s.mp4</code> into <code>landing/assets/</code> and enable <code>CONFIG.demoVideoSrc</code> in <code>app.js</code> to activate the native 45-second video player automatically.
+              </p>
+              <ol class="shot-list">
+                <li><strong>00:00 – 00:15</strong><span>Live OLGA-8 spectral breadboard readout (100 ms mains-null + 100/120 Hz flicker check) vs. reference lux/CCT verification.</span></li>
+                <li><strong>00:15 – 00:30</strong><span>Real-time Hue / WiZ lamp + Windows monitor DDC/CI &amp; GPU LUT evening ramp with OS Sleep Handoff.</span></li>
+                <li><strong>00:30 – 00:45</strong><span>Switching on an unlinked cool-blue lamp triggers 0% lamp cut + <em>Unlinked Light — Switch Off</em>.</span></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: 3-STEP EXPLAINER & OPTICAL HONESTY -->
+    <section id="physics" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">OPTICAL HONESTY · CIE S 026 · CIE PS 001:2024 · ANSI/IES RP-46-25</p>
+            <h2>Why Timer Bulbs &amp; Lux-Only Sensors Miss What Your Eyes Actually Receive</h2>
+          </div>
+          <p class="section-intro">
+            In real indoor spaces, adults reach &ge;250 lx m-EDI for only <strong>24% of waking hours</strong> (indoor electric light averages ~75–85 lx; <em>Zauner 2026 / SLL</em>), while fixed 300 photopic lx spans <strong>123–354 lx m-EDI</strong> across LED spectra (<em>PNNL</em>).
+          </p>
+        </div>
+
+        <figure class="explainer-frame">
+          <button type="button" class="zoom-trigger" id="explainer-zoom-btn" aria-label="Expand 3-step optical explainer diagram">
+            <img
+              src="assets/explainer_sheet.jpg"
+              alt="3-panel optical explainer: 1. 2-Min Room Profile maps lampshade tint and wall color once; 2. Monitor plus Room Sync shifts locally from DAY 265 m-EDI to EVENING 8 m-EDI; 3. Evening Guard and Alert flags unlinked blue light with Switch Off instead of adding warm light"
+              width="1408"
+              height="768"
+              loading="lazy"
+            >
+            <span class="zoom-pill">Inspect Full Diagram</span>
+          </button>
+          <figcaption class="media-caption">
+            <span>FIG. 02 — THREE-STAGE LOCAL ARCHITECTURE</span>
+            <span>FEEDFORWARD CALIBRATION · ACTIVE DISPLAY GUARDRAIL · NON-NEGATIVE GUARD</span>
+          </figcaption>
+        </figure>
+
+        <div class="principles-grid">
+          <article class="principle-card">
+            <span class="principle-num">01</span>
+            <h3>Lampshades, Walls &amp; Spectral Spread</h3>
+            <p>
+              Even at a fixed 5000K and 300 lx, different LEDs span <strong>196–319 lx m-EDI</strong> (<em>PNNL</em>), while linen shades and matte walls absorb <strong>20–60% of flux</strong> and shift CCT by <strong>300–1,000K</strong>. One 2-minute dark-room sweep maps your fixture and wall transfer matrix—zero jumpy live-PID flicker.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <span class="principle-num">02</span>
+            <h3>Active Display Guardrail, HDR Auto-Pause &amp; OLED Safety</h3>
+            <p>
+              At 60 cm, an un-dimmed 6500K 27&Prime; screen sends <strong>25–57+ lx m-EDI</strong> to your eyes. Rather than using pixel-capture hooks, <code>Circadian Desk</code> pairs native laptop <code>WMI</code> / external <code>DDC/CI</code> backlight (with EEPROM debounce) with zero-admin <code>Magnification.dll</code> warmth (no Registry edits or reboot—unlike f.lux), MIRED + <code>Y_lut</code> compensation, and a <code>&ge;42 nit</code> OLED floor. It automatically pauses when Windows HDR turns ON and reads only the active foreground <code>.exe</code> name to restore full color accuracy in Photoshop, Lightroom, Figma, DaVinci Resolve &amp; fullscreen games.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <span class="principle-num">03</span>
+            <h3>Additive Non-Negativity &amp; 100% Local Longevity</h3>
+            <p>
+              No bulb emits &ldquo;negative blue light.&rdquo; V1A drops linked lamps to 0% and flags unlinked cool glare (<strong>Unlinked Light — Switch Off</strong>). And unlike cloud-killed ecosystems—<strong>OSRAM Lightify (2021), Insteon (2022), Belkin Wemo (Jan 2026), and Sengled (Nov 2026)</strong>—V1A runs 100% locally and never bricks.
+            </p>
+          </article>
+        </div>
+
+        <aside class="honest-limits" aria-label="Transparent physical and operational limits">
+          <div class="limits-label">ENGINEERING TRANSPARENCY · KNOWN PHYSICAL &amp; METROLOGY LIMITS</div>
+          <div class="limits-grid">
+            <p>
+              <strong>Honest <code>k = 2</code> (&plusmn;17%) 3-State Reporting &amp; Ceiling Limit:</strong> A single 800 lm overhead bulb in a windowless room cannot physically hit 250 m-EDI at eye level. V1A never fakes compliance—borderline readings (e.g., 255 &plusmn; 43 lx) explicitly display <code>UNCERTAIN</code>, dark readings below <code>0.3 lx</code> flag the noise floor, and occluded/frozen data is never shown as live.
+            </p>
+            <p>
+              <strong>Room Sensing vs. Bright-Screen Dosimetry &amp; OS Sleep Handoff:</strong> A bezel-mounted sensor measures <em>room ambient light</em> (&plusmn;15%) and relies on the Active Display Guardrail rather than camera/screen-capture tracking. Before your PC sleeps, <strong>OS Sleep Handoff</strong> pushes a dimmed warm evening scene to linked lights and restores display gamma cleanly (or plug V1A into an always-on Home Assistant / Pi host).
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SECTION 4: HARDWARE CRAFT & B+C+D MOUNTING SYSTEM -->
+    <section id="hardware" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">INDUSTRIAL DESIGN · OPTICAL DIFFUSER · WIRED 5V USB-C · LOCAL PROTOCOL</p>
+            <h2>Braun-Inspired Hardware &amp; Unified B+C+D Magnetic Box</h2>
+          </div>
+          <p class="section-intro">
+            One matte-stone optical instrument with a flush PTFE cosine diffuser, wired 5V USB-C power (zero battery, zero radio), and a unified magnetic base. Every unit ships with all three mounting interfaces out of the box.
+          </p>
+        </div>
+
+        <div class="hardware-layout">
+          <figure class="hardware-photo">
+            <img
+              src="assets/ref_hardware.jpg"
+              alt="Close-up studio view of the matte warm light-gray V1A spectral sensor with brushed aluminum trim and milky-white PTFE cosine diffuser, shown mounted on top of a monitor bezel and docked on its dark weighted matte elastomer desk stand"
+              width="1200"
+              height="900"
+              loading="lazy"
+            >
+            <figcaption class="media-caption">
+              <span>FIG. 03 — V1A OPTICAL BODY &amp; DESK DOCK</span>
+              <span>PTFE 180° DIFFUSER · UNIFIED MAGNETIC BASE</span>
+            </figcaption>
+          </figure>
+
+          <div class="mount-stack">
+            <h3 class="sub-heading">Included in Every Box: 3 Unified Magnetic Mounts</h3>
+
+            <div class="mount-item">
+              <span class="mount-tag">MOUNT B</span>
+              <div>
+                <h4>Desktop Monitor Counterweight Clip</h4>
+                <p>Non-adhesive weighted top rest engineered for 12–35 mm monitors. Uses a minimal 3–4 mm bezel-safe silicone catch to resist cable pull while keeping thin bezels unobstructed and the 180° PTFE diffuser clear.</p>
+              </div>
+            </div>
+
+            <div class="mount-item">
+              <span class="mount-tag">MOUNT C</span>
+              <div>
+                <h4>Laptop Rear-Lid Magnetic L-Mount</h4>
+                <p>Flux-shielded rear adhesive steel plate + single-piece pull-off L-bracket with <strong>zero front-bezel lip</strong>. Keeps screen glass completely clear—<strong>zero clamshell screen-crack risk</strong> when shutting a laptop lid.</p>
+              </div>
+            </div>
+
+            <div class="mount-item">
+              <span class="mount-tag">MOUNT D</span>
+              <div>
+                <h4>Weighted Matte Elastomer Desk Stand</h4>
+                <p>Low-center-of-gravity angled tabletop dock for Hall-sensor-sensitive laptops, multi-monitor rigs, or direct side-of-desk vertical metering facing screen and window.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="specs-wrapper">
+          <h3 class="sub-heading">Transparent Technical Specifications (V1A)</h3>
+          <dl class="spec-grid">
+            <div class="spec-row">
+              <dt>Spectral Sensor Arch.</dt>
+              <dd><strong>OLGA-8 Multi-Spectral</strong> front-end (PoC auto-detect: <code>AS7341 / AS7343 / TCS3448</code> · Production: post-Fab-5 <strong>TCS3448-DOLM</strong> + dedicated 1.8V LDO &amp; I&sup2;C level-shifter)</dd>
+            </div>
+            <div class="spec-row">
+              <dt>MCU &amp; Security</dt>
+              <dd><strong>RP2350A</strong> with <strong>Hardware Secure Boot</strong> (EU CRA ready) · <strong>Zero Radio</strong>, wired 5V USB-C (zero battery degradation)</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Optics &amp; Sampling</dt>
+              <dd><strong>PTFE cosine diffuser</strong> (180&deg; FOV) · <strong>100 ms mains-null integration</strong> (exact integer multiple of 50 Hz &amp; 60 Hz) + 100/120 Hz flicker check · Optical-only photodiode array</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Metrology &amp; Outputs</dt>
+              <dd><strong>CIE S 026 m-EDI</strong>, CCT, Photopic Lux (aligned with <code>CIE PS 001:2024</code> &amp; <code>ANSI/IES RP-46-25</code>) with honest <strong>k = 2 (&plusmn;17%) 3-state</strong> status &amp; &lt;0.3 lx floor</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Display Guardrail</dt>
+              <dd><strong>Microsoft Store ($0 MSIX)</strong> &amp; <strong>GitHub Actions / winget</strong> · Native laptop <strong>WMI</strong> &amp; debounced <strong>DDC/CI</strong> + zero-admin <code>Magnification.dll</code> (no reboot, neutral <code>MagUninitialize()</code> for VRR/MPO) + <strong>Windows HDR Auto-Pause</strong>, QD-OLED/WOLED profiles (<code>&ge;42 nit</code> floor), and foreground <code>.exe</code> Auto-Pause for Photoshop, Lightroom, Figma, DaVinci Resolve &amp; fullscreen games (macOS planned)</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Local Execution</dt>
+              <dd><strong>127.0.0.1 loopback UI</strong> + optional LAN lamp protocols — 0 outbound internet requests, 0 mandatory subscription; documented Win32 API &amp; network permission table in README; immune to cloud shutdowns (Lightify / Insteon / Wemo / Sengled)</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Sleep Continuity</dt>
+              <dd><strong>Modern Standby (S0ix) OS Sleep Handoff</strong> pushes a dimmed warm evening scene to linked lights before suspend and cleanly restores and re-syncs display state on wake</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Local Light Protocols</dt>
+              <dd>Works locally with <strong>Philips Hue, WiZ, LIFX, Home Assistant (HACS / MQTT)</strong>, and open-source local Matter bridges</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: PRICING & TR-COMPLIANT VALIDATION FUNNEL -->
+    <section id="reserve" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">SOFTWARE-FIRST VALIDATION · PURE TRACK A v6.2</p>
+            <h2>Start Free ($0 App). Optional V1A Hardware: $109–$119 Early Bird (+ Shipping) / $129–$139 MSRP.</h2>
+          </div>
+          <p class="section-intro">
+            Start free via <strong>Microsoft Store (<code>$0</code> Microsoft-signed MSIX — zero SmartScreen)</strong> or public <strong>GitHub Actions Releases (<code>winget</code> / Scoop)</strong> with Windows HDR Auto-Pause, OLED-safe nit curve, System Tray, Photoshop/Games Auto-Pause, and zero-admin <code>2300K</code> (macOS planned). Physical V1A hardware opens on <strong>Crowd Supply</strong> only after strong waitlist demand and moves to tooling strictly if <strong>&ge; 250–350 backers</strong> fund the campaign—zero premature direct hardware deposits.
+          </p>
+        </div>
+
+        <div class="funnel-grid">
+          <!-- Primary CTA Card: Free Desktop Beta + Crowd Supply Pre-Launch Qualification Form -->
+          <div class="funnel-card funnel-primary">
+            <div class="card-top">
+              <span class="eyebrow">PRIMARY · FREE WINDOWS APP ($0 MS STORE / GITHUB) + V1A CROWD SUPPLY</span>
+              <div class="price-lockup">
+                <span class="price-main">$109–$119</span>
+                <span class="price-sub">Early Bird (+ shipping, Crowd Supply) · $129–$139 Standard MSRP</span>
+              </div>
+              <p class="card-desc">
+                The MIT open-source desktop app is <strong>$0</strong> (Microsoft Store MSIX or GitHub / <code>winget</code> — optional future Pro extras only, no mandatory subscription). The wired USB-C V1A kit adds the calibrated sensor, B+C+D magnetic mounts, and soft silicone cable—shipping calculated separately via Crowd Supply / Mouser and gated at &ge;250–350 pre-orders.
+              </p>
+            </div>
+
+            <form id="waitlist-form" class="qual-form" novalidate>
+              <!-- Anti-spam honeypot for Formspree / Web3Forms (invisible to humans) -->
+              <input
+                type="text"
+                name="_gotcha"
+                id="f-gotcha"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+                style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;"
+              >
+              <div class="field-group">
+                <label for="f-email">Email address <span aria-hidden="true">*</span></label>
+                <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@domain.com" required>
+              </div>
+
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="f-os">Primary Operating System</label>
+                  <select id="f-os" name="os" required>
+                    <option value="Windows">Windows 10 / 11 (First Beta)</option>
+                    <option value="macOS">macOS (Planned)</option>
+                    <option value="Linux">Linux / Home Assistant Host</option>
+                  </select>
+                </div>
+
+                <div class="field-group">
+                  <label for="f-mount">Primary Desk Setup</label>
+                  <select id="f-mount" name="mount" required>
+                    <option value="Desktop Monitor (Clip B)">Desktop Monitor (Mount B)</option>
+                    <option value="Laptop (Rear-Lid L-Mount C)">Laptop (Mount C)</option>
+                    <option value="Desk Stand (Dock D)">Desk Stand / Multi-Monitor (Mount D)</option>
+                  </select>
+                </div>
+              </div>
+
+              <fieldset class="field-fieldset">
+                <legend>Existing Smart Lights You Want to Orchestrate</legend>
+                <div class="chip-grid">
+                  <label class="chip-option"><input type="checkbox" name="ecosystem" value="Philips Hue"><span>Philips Hue</span></label>
+                  <label class="chip-option"><input type="checkbox" name="ecosystem" value="WiZ"><span>WiZ</span></label>
+                  <label class="chip-option"><input type="checkbox" name="ecosystem" value="LIFX"><span>LIFX</span></label>
+                  <label class="chip-option"><input type="checkbox" name="ecosystem" value="Home Assistant"><span>Home Assistant</span></label>
+                  <label class="chip-option"><input type="checkbox" name="ecosystem" value="Open-source local Matter bridge"><span>Local Matter Bridge</span></label>
+                  <label class="chip-option"><input type="checkbox" name="ecosystem" value="Monitor-only / Planning lights"><span>Monitor Only</span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="field-fieldset">
+                <legend>Honest Interest Check ($0 App · $109–$119 Early Bird + Shipping / $129–$139 MSRP)</legend>
+                <div class="radio-stack">
+                  <label class="radio-option">
+                    <input type="radio" name="intent" value="back_109_139" checked>
+                    <span><strong>Yes — notify me on Crowd Supply launch day</strong> (I would back V1A at $109–$119 Early Bird + shipping / $129–$139 MSRP once the 45s demo &amp; 7-day log are live)</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="intent" value="desktop_sw_beta">
+                    <span><strong>Start with the Free Desktop App ($0)</strong> (Microsoft Store MSIX &amp; GitHub / <code>winget</code> — HDR Auto-Pause, System Tray &amp; Photoshop/Games Auto-Pause; macOS waitlist included)</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="intent" value="diy_only">
+                    <span><strong>Builder / Maker only</strong> (mainly interested in the $7 instant digital DIY software + STL kit)</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <p id="form-error" class="form-error" role="alert" hidden></p>
+
+              <div class="form-actions">
+                <button type="submit" id="form-submit-btn" class="btn btn-primary btn-full">
+                  Join Free Beta &amp; Crowd Supply Pre-Launch
+                </button>
+                <a id="crowd-supply-direct-link" class="btn btn-outline btn-full" href="#reserve" hidden target="_blank" rel="noopener noreferrer">
+                  Follow Official Crowd Supply Page &rarr;
+                </a>
+              </div>
+
+              <p class="form-footnote">
+                Desktop beta release + uncut 45-second prototype video + Crowd Supply launch alert. Zero spam, zero tracking pixels.
+              </p>
+            </form>
+
+            <div id="form-success" class="form-success" role="status" aria-live="polite" hidden>
+              <span class="mono-badge badge-amber">RECORDED</span>
+              <h3>You are on the V1A Beta &amp; Pre-Launch List.</h3>
+              <p id="form-success-detail">
+                We logged your setup profile and will send the free desktop beta link, uncut 45-second bench demo, and Crowd Supply pre-launch notice once silicon validation wraps.
+              </p>
+              <button type="button" id="form-reset-btn" class="btn btn-outline btn-sm">Update Preferences</button>
+            </div>
+          </div>
+
+          <!-- Secondary Optional CTA Card: $7 Instant Digital Early-Supporter DIY Kit -->
+          <aside class="funnel-card funnel-secondary" aria-label="Optional $7 Instant Digital DIY Kit">
+            <div class="card-top">
+              <span class="eyebrow">OPTIONAL · INSTANT DIGITAL DOWNLOAD</span>
+              <div class="price-lockup">
+                <span class="price-main">$7</span>
+                <span class="price-sub">early-supporter digital DIY kit</span>
+              </div>
+              <p class="card-desc">
+                Want to build your own desk unit with an off-the-shelf <code>OLGA-8</code> breakout (<code>AS7341 / AS7343 / TCS3448</code>) and support independent development today? Instant digital files—zero physical shipping or pre-order wait.
+              </p>
+            </div>
+
+            <ul class="kit-list">
+              <li>
+                <strong>Local Orchestrator Beta (Source + Windows .exe / MSIX Kit)</strong>
+                <span>Full Python source, zero-Python <code>CircadianDesk.exe</code> &amp; Microsoft Store <code>MSIX</code> build scripts, System Tray, foreground Auto-Pause, Hue CLIP v2, WiZ LAN UDP, Home Assistant MQTT Auto-Discovery, and zero-admin <code>2300K</code> WMI/DDC/CI with OS Sleep Handoff.</span>
+              </li>
+              <li>
+                <strong>3D-Printable B + C + D Mount Files</strong>
+                <span>Clean STL &amp; STEP enclosures for the desktop monitor clip, laptop rear-lid zero-lip L-bracket, and weighted matte elastomer desk stand.</span>
+              </li>
+              <li>
+                <strong>Wiring, Firmware &amp; Optical Calibration Scripts</strong>
+                <span>Zero-solder Qwiic/STEMMA QT wiring for Raspberry Pi Pico / Pico 2 (<code>RP2350A</code>), PTFE diffuser notes, 100 ms mains-null driver, and calibration scripts.</span>
+              </li>
+            </ul>
+
+            <div class="kit-footer">
+              <button type="button" id="diy-kit-btn" class="btn btn-secondary btn-full">
+                Preview $7 Digital DIY Kit &rarr;
+              </button>
+              <p class="form-footnote">
+                100% instant digital download (software, CAD, firmware &amp; calibration scripts). Fulfilled via <strong>Paddle / Gumroad</strong> digital checkout—never a physical hardware deposit.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-code">SPECTRAL · V1A</span>
+        <p>Eye-Level Spectral Light Orchestrator · Wired USB-C · 100% Local · Zero Tracking Cookies</p>
+        <p style="margin-top: 8px; font-size: 0.85rem;">
+          <a href="https://github.com/cagriaksoy191-oss/circadian-desk" target="_blank" rel="noopener noreferrer">GitHub (MIT)</a> &middot;
+          <a href="https://github.com/cagriaksoy191-oss/circadian-desk/blob/main/PRIVACY.md" target="_blank" rel="noopener noreferrer">Privacy Policy</a> &middot;
+          <a href="https://github.com/cagriaksoy191-oss/circadian-desk/blob/main/CODE_SIGNING_POLICY.md" target="_blank" rel="noopener noreferrer">Code Signing Policy</a> &middot;
+          <a href="https://github.com/cagriaksoy191-oss/circadian-desk/blob/main/ROADMAP.md" target="_blank" rel="noopener noreferrer">Roadmap</a>
+        </p>
+      </div>
+      <div class="footer-legal">
+        <p>
+          <strong>Optical Instrument &amp; Scope Notice:</strong> Designed for room ambient photometric metering (CIE S 026:2018 m-EDI, CIE PS 001:2024, ANSI/IES RP-46-25, CCT, Lux) and desk visual comfort / glare ergonomics. Reference daytime/evening m-EDI guidelines follow Brown et al. (2022) consensus ranges established for healthy, daytime-active adults aged 18–55. Not a medical device; not intended to diagnose, treat, cure, or prevent any disease or health condition.
+        </p>
+        <p>
+          <strong>Interoperability Notice:</strong> Philips Hue, WiZ, LIFX, Home Assistant, Matter, Crowd Supply, Paddle, Gumroad, Windows, Microsoft Store, macOS, Linux, f.lux, Adobe Photoshop, Lightroom, Figma, and DaVinci Resolve are trademarks of their respective owners, referenced solely to describe local interoperability, compatibility, or digital fulfillment without affiliation or endorsement.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for Explainer Sheet -->
+  <dialog id="lightbox-dialog" class="modal-dialog" aria-label="Full-resolution optical explainer">
+    <div class="modal-bar">
+      <span class="mono-label">FIG. 02 — THREE-STAGE OPTICAL ARCHITECTURE</span>
+      <button type="button" class="modal-close" data-close-modal aria-label="Close diagram">Close &times;</button>
+    </div>
+    <img src="assets/explainer_sheet.jpg" alt="Full-resolution 3-panel optical explainer diagram">
+  </dialog>
+
+  <!-- DIY Digital Kit Preview Modal (when CONFIG.diyKitUrl is not yet set) -->
+  <dialog id="diy-dialog" class="modal-dialog modal-narrow" aria-labelledby="diy-dialog-title">
+    <div class="modal-bar">
+      <span class="mono-label">EARLY-SUPPORTER DIGITAL DIY KIT · $7</span>
+      <button type="button" class="modal-close" data-close-modal aria-label="Close modal">Close &times;</button>
+    </div>
+    <div class="modal-body">
+      <h3 id="diy-dialog-title">Digital Pack Publishes Alongside the Day-12 Bench Video</h3>
+      <p>
+        We are finalizing bench validation on the physical <code>OLGA-8 spectral + Raspberry Pi Pico 2 (RP2350A)</code> kit before opening the $7 <strong>Paddle / Gumroad</strong> instant digital download.
+      </p>
+      <p>
+        Select <strong>&ldquo;Builder / Maker only&rdquo;</strong> in the pre-launch form to get notified the moment the digital ZIP (orchestrator source, STL/STEP mounts, firmware, and calibration scripts) goes live.
+      </p>
+      <button type="button" class="btn btn-primary btn-full" id="diy-jump-form">
+        Select DIY Kit Notification in Form
+      </button>
+    </div>
+  </dialog>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

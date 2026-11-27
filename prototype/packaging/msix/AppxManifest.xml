@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+  IgnorableNamespaces="uap uap10 rescap desktop">
+
+  <!--
+    Before Microsoft Partner Center upload, replace Identity/@Name and Identity/@Publisher
+    with your reserved Partner Center values (or pass msix-identity & msix-publisher args
+    to build_windows.py / GitHub Actions release workflow).
+    Microsoft Store signs the submitted MSIX automatically ($0 individual Turkey account,
+    zero Windows Defender SmartScreen warnings, zero Smart App Control blocks).
+  -->
+  <Identity
+    Name="CircadianDesk.LocalLightOrchestrator"
+    Publisher="CN=REPLACE-WITH-MICROSOFT-PARTNER-CENTER-PUBLISHER-ID"
+    Version="1.0.0.0"
+    ProcessorArchitecture="x64" />
+
+  <Properties>
+    <DisplayName>Circadian Desk</DisplayName>
+    <PublisherDisplayName>Circadian Desk</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily
+      Name="Windows.Desktop"
+      MinVersion="10.0.19041.0"
+      MaxVersionTested="10.0.26100.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="en-US" />
+  </Resources>
+
+  <Applications>
+    <Application
+      Id="CircadianDeskApp"
+      Executable="CircadianDesk.exe"
+      EntryPoint="Windows.FullTrustApplication"
+      uap10:RuntimeBehavior="packagedClassicApp"
+      uap10:TrustLevel="mediumIL">
+      <uap:VisualElements
+        DisplayName="Circadian Desk"
+        Description="Local-first Windows circadian display and smart-light orchestrator with HDR Auto-Pause, zero admin rights, and zero cloud."
+        BackgroundColor="#F6F4EF"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png">
+        <uap:DefaultTile ShortName="Circadian Desk" />
+      </uap:VisualElements>
+      <Extensions>
+        <desktop:Extension
+          Category="windows.startupTask"
+          Executable="CircadianDesk.exe"
+          EntryPoint="Windows.FullTrustApplication"
+          uap10:Parameters="--background">
+          <desktop:StartupTask
+            TaskId="CircadianDeskStartup"
+            Enabled="false"
+            DisplayName="Circadian Desk (Local Light Orchestrator)" />
+        </desktop:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <!-- Sole required capability for Win32 WMI backlight, DDC/CI, Magnification.dll, and System Tray -->
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+</Package>

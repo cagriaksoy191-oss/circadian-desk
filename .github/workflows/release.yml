@@ -23,6 +23,8 @@ permissions:
 jobs:
   build-windows-release:
     runs-on: windows-latest
+    env:
+      HAS_SIGNPATH: ${{ secrets.SIGNPATH_API_TOKEN != '' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -74,14 +76,14 @@ jobs:
           $smoke = @'
           import csv, pathlib, subprocess, tempfile
           exe = pathlib.Path("prototype/dist/CircadianDesk/CircadianDesk.exe")
-          r_ver = subprocess.run([str(exe), "--version"], capture_output=True, text=True, timeout=30, check=True)
+          r_ver = subprocess.run([str(exe), "--version"], capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=30, check=True)
           print("Version output:", r_ver.stdout.strip())
           assert "1.0.0" in r_ver.stdout, f"Unexpected --version output: {r_ver.stdout!r}"
           with tempfile.TemporaryDirectory() as td:
               tmp_csv = pathlib.Path(td) / "ci_smoke.csv"
               subprocess.run(
                   [str(exe), "--simulate", "day_to_evening_demo", "--light", "none", "--ticks", "4", "--interval", "0", "--log-csv", str(tmp_csv)],
-                  capture_output=True, text=True, timeout=45, check=True
+                  capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=45, check=True
               )
               with tmp_csv.open(encoding="utf-8") as fh:
                   rows = list(csv.DictReader(fh))
@@ -145,14 +147,14 @@ jobs:
 
       - name: Upload unsigned portable ZIP for optional SignPath signing
         id: upload_signpath_zip
-        if: ${{ secrets.SIGNPATH_API_TOKEN != '' }}
+        if: env.HAS_SIGNPATH == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: circadiandesk-portable-zip
           path: prototype/dist/CircadianDesk-v1.0.0-win64-portable.zip
 
       - name: Optional OSS Authenticode signing via SignPath Foundation ($0)
-        if: ${{ secrets.SIGNPATH_API_TOKEN != '' }}
+        if: env.HAS_SIGNPATH == 'true'
         uses: signpath/github-action-submit-signing-request@v3
         with:
           api-token: ${{ secrets.SIGNPATH_API_TOKEN }}

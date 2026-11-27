@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/badge/license-MIT-d97706?style=flat-square)](LICENSE)
 [![Network](https://img.shields.io/badge/outbound%20network-0%20requests-15803d?style=flat-square)](#permissions-win32-apis--network-declaration)
 
-[Quick Start](#quick-start) &middot; [Features](#what-makes-circadian-desk-different) &middot; [Permissions & Privacy](#permissions-win32-apis--network-declaration) &middot; [Smart Bulbs & Reports](#optional-local-smart-bulbs--7-day-reports) &middot; [Roadmap](ROADMAP.md)
+[Live Simulator & Website](https://cagriaksoy191-oss.github.io/circadian-desk/) &middot; [Quick Start](#quick-start) &middot; [Features](#what-makes-circadian-desk-different) &middot; [Permissions & Privacy](#permissions-win32-apis--network-declaration) &middot; [Smart Bulbs & Reports](#optional-local-smart-bulbs--7-day-reports) &middot; [Roadmap](ROADMAP.md)
 
 </div>
 

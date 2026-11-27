@@ -19,11 +19,9 @@
       // demoVideoSrc: 'assets/demo_45s.mp4',
       demoVideoSrc: '',
 
-      // 1-LINE FREE WAITLIST BACKEND:
-      // Option A (Formspree, 50 free/mo): 'https://formspree.io/f/YOUR_FORM_ID'
-      // Option B (Web3Forms, 250 free/mo): 'https://api.web3forms.com/submit' + web3FormsAccessKey
-      formEndpoint: '',
-      web3FormsAccessKey: '', // Only required if using Web3Forms
+      // 1-LINE FREE WAITLIST BACKEND (Web3Forms — 250 free/mo):
+      formEndpoint: 'https://api.web3forms.com/submit',
+      web3FormsAccessKey: '2fe12ad8-87b4-4987-86c5-7126de4a028a',
 
       // Crowd Supply approved Pre-Launch URL ($109–$119 Early Bird + shipping / $129–$139 MSRP)
       crowdSupplyUrl: '',
@@ -583,17 +581,21 @@
             body: JSON.stringify(bodyData)
           });
 
-          if (!res.ok) {
+          let resJson = null;
+          try {
+            resJson = await res.json();
+          } catch (_parseErr) {
+            resJson = null;
+          }
+
+          if (!res.ok || (resJson && resJson.success === false)) {
             let serverMsg = `Submission error (${res.status})`;
-            try {
-              const errJson = await res.json();
-              if (errJson && typeof errJson.error === 'string' && errJson.error.trim()) {
-                serverMsg = errJson.error.trim();
-              } else if (errJson && Array.isArray(errJson.errors) && errJson.errors[0] && errJson.errors[0].message) {
-                serverMsg = errJson.errors[0].message;
-              }
-            } catch (_parseErr) {
-              // Keep generic status code message
+            if (resJson && typeof resJson.message === 'string' && resJson.message.trim()) {
+              serverMsg = resJson.message.trim();
+            } else if (resJson && typeof resJson.error === 'string' && resJson.error.trim()) {
+              serverMsg = resJson.error.trim();
+            } else if (resJson && Array.isArray(resJson.errors) && resJson.errors[0] && resJson.errors[0].message) {
+              serverMsg = resJson.errors[0].message;
             }
             throw new Error(serverMsg);
           }

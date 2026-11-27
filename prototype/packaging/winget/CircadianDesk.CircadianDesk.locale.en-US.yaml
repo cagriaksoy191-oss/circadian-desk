@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.defaultLocale.1.10.0.schema.json
+
+PackageIdentifier: CircadianDesk.CircadianDesk
+PackageVersion: 1.0.0
+PackageLocale: en-US
+Publisher: Çağrı Aksoy
+PublisherUrl: https://github.com/cagriaksoy191-oss/circadian-desk
+PublisherSupportUrl: https://github.com/cagriaksoy191-oss/circadian-desk/issues
+PrivacyUrl: https://github.com/cagriaksoy191-oss/circadian-desk/blob/main/PRIVACY.md
+Author: Çağrı Aksoy
+PackageName: Circadian Desk
+PackageUrl: https://cagriaksoy191-oss.github.io/circadian-desk/
+License: MIT
+LicenseUrl: https://github.com/cagriaksoy191-oss/circadian-desk/blob/main/LICENSE
+Copyright: Copyright (c) 2026 Çağrı Aksoy
+ShortDescription: Local-first, zero-cloud Windows 10/11 display and smart-light circadian orchestrator.
+Description: >-
+  Circadian Desk synchronizes your laptop/monitor hardware backlight (WMI & debounced DDC/CI)
+  and zero-admin GPU color temperature (Magnification.dll) along a smooth MIRED-continuous
+  circadian curve calibrated to CIE S 026 and Brown et al. (2022) visual-comfort guidelines.
+  Features automatic Windows 11 HDR Auto-Pause, OLED/QD-OLED >=42 nit hardware safety floor,
+  Modern Standby (S0ix) wake sync, an interactive 24-hour curve scrubber, foreground auto-pause
+  for creative apps and fullscreen games, and optional local LAN smart-bulb sync (Philips Hue,
+  WiZ, Home Assistant MQTT). 100% local execution with zero cloud accounts and zero telemetry.
+Moniker: circadian-desk
+Tags:
+  - circadian
+  - display
+  - blue-light
+  - color-temperature
+  - brightness
+  - oled
+  - hdr
+  - philips-hue
+  - wiz
+  - home-assistant
+  - local-first
+  - privacy
+ReleaseNotesUrl: https://github.com/cagriaksoy191-oss/circadian-desk/releases/tag/v1.0.0
+Documentations:
+  - DocumentLabel: Permissions & Privacy Policy
+    DocumentUrl: https://github.com/cagriaksoy191-oss/circadian-desk/blob/main/PRIVACY.md
+ManifestType: defaultLocale
+ManifestVersion: 1.10.0

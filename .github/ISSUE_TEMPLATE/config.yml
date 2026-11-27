@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discussions & Setup Questions
+    url: https://github.com/cagriaksoy191-oss/circadian-desk/discussions
+    about: Ask questions, share desk/OLED/Hue setups, or discuss circadian profiles
+  - name: Public Roadmap (v1.1 & V1A)
+    url: https://github.com/cagriaksoy191-oss/circadian-desk/blob/main/ROADMAP.md
+    about: Review shipped v1.0.0 features and upcoming v1.1 plans

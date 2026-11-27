@@ -56,14 +56,20 @@ Unlike legacy blue-light filters, it requires **no Registry edits, no reboot, no
 
 > **SmartScreen Note:** Portable GitHub builds are compiled transparently via public GitHub Actions (official PSF-signed CPython, `--onedir --noupx`) and are currently unsigned while [SignPath Foundation](CODE_SIGNING_POLICY.md) OSS signing and **Microsoft Store (`$0` MSIX)** certification are pending. On first launch, Windows Defender SmartScreen may display *"Unknown publisher"* — click **More info → Run anyway**, verify `SHA256SUMS.txt`, or inspect/run directly from Python source below.
 
-### Option 2 — Microsoft Store (`$0` MSIX · Zero SmartScreen) *(Certification Pending)*
+### Option 2 — Scoop Package Manager (Available Now)
+```powershell
+scoop bucket add circadiandesk https://github.com/cagriaksoy191-oss/scoop-circadiandesk
+scoop install circadiandesk
+```
+
+### Option 3 — Microsoft Store (`$0` MSIX · Zero SmartScreen) *(Certification Pending)*
 Once Microsoft Store certification publishes, Circadian Desk will be Microsoft-signed with zero SmartScreen/Smart App Control prompts, native Windows Startup Apps integration, and one-command WinGet install:
 ```powershell
 winget install <StoreProductID> --source msstore
 ```
 *(MSIX build & Partner Center certification guide: [`prototype/packaging/msix/README_MSIX.md`](prototype/packaging/msix/README_MSIX.md).)*
 
-### Option 3 — Run Directly from Source (Python 3.10+, Zero Runtime `pip` Dependencies)
+### Option 4 — Run Directly from Source (Python 3.10+, Zero Runtime `pip` Dependencies)
 Circadian Desk's entire desktop runtime uses **only the Python standard library** — no `pip install` needed to run:
 ```powershell
 git clone https://github.com/cagriaksoy191-oss/circadian-desk.git

@@ -71,14 +71,25 @@ jobs:
       - name: Smoke-test compiled CircadianDesk.exe (--version & --simulate)
         shell: pwsh
         run: |
-          $exe = "prototype\dist\CircadianDesk\CircadianDesk.exe"
-          $ver = & $exe --version
-          Write-Host "Version output: $ver"
+          $smoke = @'
+          import csv, pathlib, subprocess, tempfile
+          exe = pathlib.Path("prototype/dist/CircadianDesk/CircadianDesk.exe")
+          r_ver = subprocess.run([str(exe), "--version"], capture_output=True, text=True, timeout=30, check=True)
+          print("Version output:", r_ver.stdout.strip())
+          assert "1.0.0" in r_ver.stdout, f"Unexpected --version output: {r_ver.stdout!r}"
+          with tempfile.TemporaryDirectory() as td:
+              tmp_csv = pathlib.Path(td) / "ci_smoke.csv"
+              subprocess.run(
+                  [str(exe), "--simulate", "day_to_evening_demo", "--light", "none", "--ticks", "4", "--interval", "0", "--log-csv", str(tmp_csv)],
+                  capture_output=True, text=True, timeout=45, check=True
+              )
+              with tmp_csv.open(encoding="utf-8") as fh:
+                  rows = list(csv.DictReader(fh))
+              print("Simulated CSV rows:", len(rows))
+              assert len(rows) == 4, f"Expected 4 rows, got {len(rows)}"
+          '@
+          $smoke | python -
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          $tmpCsv = Join-Path $env:TEMP "ci_smoke.csv"
-          & $exe --simulate day_to_evening_demo --light none --ticks 4 --interval 0 --log-csv $tmpCsv
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          Remove-Item -Force -ErrorAction SilentlyContinue $tmpCsv
 
       - name: Compile resources.pri (makepri.exe) & pack MSIX (makeappx.exe)
         shell: pwsh
@@ -156,6 +167,8 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
+          name: Circadian Desk ${{ github.ref_name }}
+          generate_release_notes: true
           files: |
             prototype/dist/CircadianDesk-v1.0.0-win64-portable.zip
             prototype/dist/CircadianDesk_1.0.0.0_x64.msix

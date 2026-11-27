@@ -320,17 +320,25 @@ def stage_msix_directory(
     # Generate complete transparent Braun PNG asset matrix inside stage_dir/Assets
     generate_msix_assets(stage_dir / "Assets")
 
-    # Copy AppxManifest.xml (optionally injecting Partner Center Identity Name & Publisher)
+    # Copy AppxManifest.xml (optionally overriding Partner Center Identity Name & Publisher)
+    import re
+
     manifest_xml = manifest_src.read_text(encoding="utf-8")
     if identity_name:
-        manifest_xml = manifest_xml.replace(
-            'Name="CircadianDesk.LocalLightOrchestrator"',
-            f'Name="{identity_name}"',
+        manifest_xml = re.sub(
+            r'(<Identity\b[^>]*\bName=")[^"]*(")',
+            rf'\g<1>{identity_name}\2',
+            manifest_xml,
+            count=1,
+            flags=re.S,
         )
     if publisher:
-        manifest_xml = manifest_xml.replace(
-            'Publisher="CN=REPLACE-WITH-MICROSOFT-PARTNER-CENTER-PUBLISHER-ID"',
-            f'Publisher="{publisher}"',
+        manifest_xml = re.sub(
+            r'(<Identity\b[^>]*\bPublisher=")[^"]*(")',
+            rf'\g<1>{publisher}\2',
+            manifest_xml,
+            count=1,
+            flags=re.S,
         )
     if "REPLACE-WITH-MICROSOFT-PARTNER-CENTER-PUBLISHER-ID" in manifest_xml:
         print(

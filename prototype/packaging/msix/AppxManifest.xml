@@ -8,21 +8,19 @@
   IgnorableNamespaces="uap uap10 rescap desktop">
 
   <!--
-    Before Microsoft Partner Center upload, replace Identity/@Name and Identity/@Publisher
-    with your reserved Partner Center values (or pass msix-identity & msix-publisher args
-    to build_windows.py / GitHub Actions release workflow).
+    Microsoft Partner Center reserved identity for Circadian Desk (Store ID: 9NM27LBC38HN).
     Microsoft Store signs the submitted MSIX automatically ($0 individual Turkey account,
     zero Windows Defender SmartScreen warnings, zero Smart App Control blocks).
   -->
   <Identity
-    Name="CircadianDesk.LocalLightOrchestrator"
-    Publisher="CN=REPLACE-WITH-MICROSOFT-PARTNER-CENTER-PUBLISHER-ID"
+    Name="arAksoy.CircadianDesk"
+    Publisher="CN=DD28E863-F2A2-4CA4-B43C-9FF7FDBC45DC"
     Version="1.0.0.0"
     ProcessorArchitecture="x64" />
 
   <Properties>
     <DisplayName>Circadian Desk</DisplayName>
-    <PublisherDisplayName>Circadian Desk</PublisherDisplayName>
+    <PublisherDisplayName>Çağrı Aksoy</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
